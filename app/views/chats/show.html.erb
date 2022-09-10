@@ -10,9 +10,11 @@
   <% @chats.each do |chat| %>
     <% if chat.user_id == current_user.id %>
       <p style="text-align: right;"><%= chat.message %></p>
+      <%= link_to "destroy", chat_path(chat), method: :delete %>
     <% else %>
       <p style="text-align: left;"><%= chat.message %></p>
     <% end %>
+
   <% end %>
 </div>
 

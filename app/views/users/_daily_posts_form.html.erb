@@ -1,5 +1,5 @@
 <div class="my-3">
-  <%= form_with url: user_daily_posts_form_path(user), method: :get, remote: true, class: "row justify-content-center", local: false do |f| %>
+  <%= form_with url: user_daily_posts_path(user), method: :get, remote: true, class: "row justify-content-center", local: false do |f| %>
     <div class="col-auto">
       <%= f.date_field :created_at, class: "form-control" %>
     </div>

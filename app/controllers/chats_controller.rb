@@ -21,9 +21,15 @@ class ChatsController < ApplicationController
     render :validater unless @chat.save
   end
 
+  def destroy
+    @chat = current_user.chats.find_by(params[:id])
+    @chat.destroy
+    redirect_to request.referer
+  end
+
   private
   def chat_params
-    params.require(:chat).permit(:message, :room_id)
+    params.require(:chat).permit(:message, :room_id, :user_id)
   end
 
   def reject_non_related
